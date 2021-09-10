@@ -1,13 +1,11 @@
 import 'logger.dart';
+import 'password.dart';
 
 void main(List<String> arguments) {
-  //cascade operator
-  final user = User()
-    ..id = 10
-    ..name = 'Ayo';
+  final pass = Password()..value = 'Akindeley';
 
-  Log.out(user.toString());
-  Log.out(user.toJson());
+  Log.out(pass.toString());
+  Log.out('${pass.isValid()}');
 }
 
 class User {
