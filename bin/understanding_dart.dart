@@ -1,9 +1,10 @@
 import 'logger.dart';
 
 void main(List<String> arguments) {
-  final user = User();
-  user.id = 9;
-  user.name = 'Akin';
+  //cascade operator
+  final user = User()
+    ..id = 10
+    ..name = 'Ayo';
 
   Log.out(user.toString());
   Log.out(user.toJson());
