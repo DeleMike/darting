@@ -1,6 +1,7 @@
 import 'logger.dart';
 import 'password.dart';
 import 'user.dart';
+import 'my_singleton.dart';
 
 void main(List<String> arguments) {
   final user = User.michael();
@@ -9,7 +10,6 @@ void main(List<String> arguments) {
   Log.out(deserializedUser.toString());
 
   //SAMPLE
-  final password = Password();
-  password.value = 'kjhsdhaklgiu18922uaskbk*292';
-  String va = password.value;
+  final singler = MySingleton.instance;
+  
 }
