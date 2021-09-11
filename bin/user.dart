@@ -12,8 +12,21 @@ class User {
 
   User.anon() : this();
 
-  String toJson() {
-    return "{'id': $_id, 'name': $_name,}";
+  factory User.michael() {
+    return User(id: 2, name: 'Michael');
+  }
+
+  ///deseliarize json
+  factory User.fromJson(Map<String, Object> json) {
+    return User(id: json['id'] as int, name: json['name'] as String);
+  }
+
+  ///serialize class
+  Map<String, Object> toJson() {
+    return {
+      'id': _id,
+      'name': _name,
+    };
   }
 
   @override
