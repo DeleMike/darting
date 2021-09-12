@@ -1,4 +1,5 @@
 import 'logger.dart';
+import 'sphere.dart';
 import 'student.dart';
 
 void main(List<String> arguments) {
@@ -17,10 +18,15 @@ void main(List<String> arguments) {
   //   Log.out('false: not same object');
   // }
 
-  final studentA = Student(firstName: 'Bert', lastName: 'X', grade: 95);
-  final studentB = Student(firstName: 'Ernie', lastName: 'X', grade: 85);
+  //CHALLENGE 1
+  // final studentA = Student(firstName: 'Bert', lastName: 'X', grade: 95);
+  // final studentB = Student(firstName: 'Ernie', lastName: 'X', grade: 85);
 
-  Log.out(studentA.printStudentGrade());
-  Log.out(studentB.printStudentGrade());
+  // Log.out(studentA.printStudentGrade());
+  // Log.out(studentB.printStudentGrade());
 
+  //CHALLENGE 2
+  final sphere = Sphere(radius: 12);
+  Log.out('Volume of sphere: ${sphere.volume}');
+  Log.out('Surface Area of sphere: ${sphere.surfaceArea}');
 }

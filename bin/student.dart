@@ -4,7 +4,8 @@ class Student {
   int? grade = 0;
 
   Student({String? firstName, String? lastName, int? grade})
-      : firstName = firstName,
+      : assert(grade! > 0),
+        firstName = firstName,
         lastName = lastName,
         grade = grade;
 
