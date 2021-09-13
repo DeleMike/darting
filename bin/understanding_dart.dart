@@ -3,12 +3,14 @@ void main(List<String> arguments) {
   //ListOperations.add([1, 2, 3, 4]);
   //ListOperations.firstChallenge('I code quite frequently');
 
-  var bigText = ''' 
-  Write a function that takes a paragraph
-  of text and returns a collection of unique 
-  String characters that the text contains.
-  ''';
-  print(ListOperations.secondChallenge(bigText));
+  // var bigText = '''
+  // Write a function that takes a paragraph
+  // of text and returns a collection of unique
+  // String characters that the text contains.
+  // ''';
+  // print(ListOperations.secondChallenge(bigText));
+
+  ListOperations.challengeThree();
 }
 
 class ListOperations {
@@ -87,5 +89,32 @@ class ListOperations {
       }
     }
     return count;
+  }
+
+  static void challengeThree() {
+    var users = [
+      User(1, 'Akin'),
+      User(2, 'Peace'),
+      User(3, 'David'),
+    ];
+
+    var newList = users
+        .map((user) => {
+              'id': user.mId,
+              'name': user.mName,
+            })
+        .toList();
+
+    print(newList);
+  }
+}
+
+class User {
+  int mId = 0;
+  String mName = 'Anon';
+
+  User(int id, String name) {
+    mId = id;
+    mName = name;
   }
 }
