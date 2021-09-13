@@ -2,7 +2,13 @@ void main(List<String> arguments) {
   //ListOperations.play();
   //ListOperations.add([1, 2, 3, 4]);
   //ListOperations.firstChallenge('I code quite frequently');
-  ListOperations.secondChallenge('abbccbb');
+
+  var bigText = ''' 
+  Write a function that takes a paragraph
+  of text and returns a collection of unique 
+  String characters that the text contains.
+  ''';
+  print(ListOperations.secondChallenge(bigText));
 }
 
 class ListOperations {
@@ -42,32 +48,37 @@ class ListOperations {
     print(unique);
   }
 
-  //break into parts
-  static void secondChallenge(String paragraph) {
+  static Map<String, int> secondChallenge(String paragraph) {
     var length = paragraph.length;
     var listOfStrings = <String>[];
-    var listOfLetters = <Letter>[];
     var foundLetters = <String>[];
-    //var map = <String, int>{};
+    var nums = [];
+    var map = <String, int>{};
 
+    //break into parts and change all to lower case
     for (var i = 0; i < length; i++) {
-      listOfStrings.add(paragraph[i]);
+      listOfStrings.add(paragraph[i].toLowerCase());
     }
 
-    for (var i = 0; i < listOfStrings.length; i++) {
-      for (var item in foundLetters) {
-        if (listOfStrings[i] == item) continue;
-      }
+    // check if the letter in [listOfStrings] has been found before
+    // if it has skip it
+    // else count how many type of the same letter is present in the list
+    for (var item in listOfStrings) {
+      if (foundLetters.contains(item)) continue;
 
-      listOfLetters.add(Letter(
-          value: listOfStrings[i],
-          frequency: getCount(listOfStrings[i], listOfStrings)));
-      foundLetters.add(listOfStrings[i]);
+      nums.add(getCount(item, listOfStrings));
+      foundLetters.add(item);
     }
 
-    print(listOfLetters);
+    // add the values to a map
+    for (var index = 0; index < foundLetters.length; index++) {
+      map[foundLetters[index]] = nums[index];
+    }
+
+    return map;
   }
 
+  ///gets the frequency of a letter in the given list
   static int getCount(String value, List<String> letters) {
     var count = 0;
     for (var letter in letters) {
@@ -77,12 +88,4 @@ class ListOperations {
     }
     return count;
   }
-}
-
-class Letter {
-  final String _value;
-  final int _frequency;
-  Letter({required String value, required int frequency})
-      : _value = value,
-        _frequency = frequency;
 }
