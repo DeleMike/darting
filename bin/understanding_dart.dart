@@ -12,8 +12,11 @@ void main(List<String> arguments) {
   // // platypus.layEggs();
   // print(platypus);
 
-  final server = FakeWebServer();
-  server.fetchTemperature('');
+  // final server = FakeWebServer();
+  // server.fetchTemperature('');
+
+  final soda = Bottle();
+  soda.open();
 }
 
 enum Grade { A, B, C, D, E, F }
@@ -77,11 +80,27 @@ class Platypus extends Animal {
 
 abstract class DataRepository {
   double? fetchTemperature(String city);
+  factory DataRepository() => FakeWebServer();
 }
 
 class FakeWebServer implements DataRepository {
   @override
   double? fetchTemperature(String city) {
     return 42.0;
+  }
+}
+
+abstract class Bottle {
+  ///return a SodaBottle
+  factory Bottle() => SodaBottle();
+
+  ///open the bottle
+  void open();
+}
+
+class SodaBottle implements Bottle {
+  @override
+  void open() {
+    print('Fizz Fizz');
   }
 }
