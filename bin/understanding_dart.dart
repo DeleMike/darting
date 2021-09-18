@@ -5,12 +5,15 @@ void main(List<String> arguments) {
 
   // final students = [jane, jessie, marty];
 
-  final Animal platypus = Platypus();
-  print(platypus.isActive);
-  platypus.eat();
-  platypus.move();
-  // platypus.layEggs();
-  print(platypus);
+  // final Animal platypus = Platypus();
+  // print(platypus.isActive);
+  // platypus.eat();
+  // platypus.move();
+  // // platypus.layEggs();
+  // print(platypus);
+
+  final server = FakeWebServer();
+  server.fetchTemperature('');
 }
 
 enum Grade { A, B, C, D, E, F }
@@ -69,5 +72,16 @@ class Platypus extends Animal {
 
   void layEggs() {
     print('Plop plop');
+  }
+}
+
+abstract class DataRepository {
+  double? fetchTemperature(String city);
+}
+
+class FakeWebServer implements DataRepository {
+  @override
+  double? fetchTemperature(String city) {
+    return 42.0;
   }
 }
