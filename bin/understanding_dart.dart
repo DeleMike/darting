@@ -1,9 +1,16 @@
 void main(List<String> arguments) {
-  final jane = Student('Jane', 'Snow');
-  final jessie = SchoolBandMember('Jessie', 'Jones');
-  final marty = StudentAthlete('Marty', 'McFly');
+  // final jane = Student('Jane', 'Snow');
+  // final jessie = SchoolBandMember('Jessie', 'Jones');
+  // final marty = StudentAthlete('Marty', 'McFly');
 
-  final students = [jane, jessie, marty];
+  // final students = [jane, jessie, marty];
+
+  final Animal platypus = Platypus();
+  print(platypus.isActive);
+  platypus.eat();
+  platypus.move();
+  // platypus.layEggs();
+  print(platypus);
 }
 
 enum Grade { A, B, C, D, E, F }
@@ -36,4 +43,31 @@ class StudentAthlete extends Student {
   StudentAthlete(String givenName, String surname) : super(givenName, surname);
 
   bool get isEligible => grades.every((grade) => grade != Grade.F);
+}
+
+abstract class Animal {
+  bool isActive = true;
+  void eat();
+  void move();
+
+  @override
+  String toString() {
+    return "I'm a $runtimeType";
+  }
+}
+
+class Platypus extends Animal {
+  @override
+  void eat() {
+    print('munch munch');
+  }
+
+  @override
+  void move() {
+    print('Glide Glide');
+  }
+
+  void layEggs() {
+    print('Plop plop');
+  }
 }
