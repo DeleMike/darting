@@ -26,17 +26,24 @@ void main(List<String> arguments) {
   // final msg = secret.decoded;
   // print(msg);
 
-  final list = [
-    Platypus(12),
-    Platypus(100),
-    Platypus(10),
-    Platypus(2),
-    Platypus(200),
-    Platypus(24),
-    Platypus(8)
-  ];
-  list.sort((Platypus p, Platypus x) => p.weight.compareTo(x.weight));
-  print(list);
+  final bMsg =
+      '''Uif!tfdsfu!up!mfbsojoh!Ebsu!xfmm!jt!up!dg"ewtkqwu"cpf"lwuv"vt{"vjkpiu0"Vlqfh#|rx*uh#uhdglqj#wklv/#wkdw#reylrxvo|#ghvfulehv#|rx1#Kssh\$nsf%'''
+          .decoded;
+  print(bMsg);
+  // final list = [
+  //   Platypus(12),
+  //   Platypus(100),
+  //   Platypus(10),
+  //   Platypus(2),
+  //   Platypus(200),
+  //   Platypus(24),
+  //   Platypus(8)
+  // ];
+  // list.sort((Platypus p, Platypus x) => p.weight.compareTo(x.weight));
+  // print(list);
+
+  // final time = 3000.minutes;
+  // print(time);
 }
 
 enum Grade { A, B, C, D, E, F }
@@ -181,3 +188,8 @@ class Content {
 
 class Note {}
 
+extension on int {
+  int get minutes {
+    return int.fromEnvironment('defaultPort');
+  }
+}
