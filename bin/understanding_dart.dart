@@ -21,10 +21,22 @@ void main(List<String> arguments) {
   // final calc = Calculator();
   // calc.sum(10, 5);
 
-  final secret = 'abc'.encoded;
-  print(secret);
-  final msg = secret.decoded;
-  print(msg);
+  // final secret = 'abc'.encoded;
+  // print(secret);
+  // final msg = secret.decoded;
+  // print(msg);
+
+  final list = [
+    Platypus(12),
+    Platypus(100),
+    Platypus(10),
+    Platypus(2),
+    Platypus(200),
+    Platypus(24),
+    Platypus(8)
+  ];
+  list.sort((Platypus p, Platypus x) => p.weight.compareTo(x.weight));
+  print(list);
 }
 
 enum Grade { A, B, C, D, E, F }
@@ -70,7 +82,10 @@ abstract class Animal {
   }
 }
 
-class Platypus extends Animal {
+class Platypus extends Animal implements Comparable {
+  int weight;
+  Platypus(this.weight);
+
   @override
   void eat() {
     print('munch munch');
@@ -83,6 +98,16 @@ class Platypus extends Animal {
 
   void layEggs() {
     print('Plop plop');
+  }
+
+  @override
+  int compareTo(otherAnimal) {
+    return weight;
+  }
+
+  @override
+  String toString() {
+    return "I'm a Platypus with weight of $weight";
   }
 }
 
@@ -132,5 +157,3 @@ extension on String {
     return output.toString();
   }
 }
-
-
