@@ -157,3 +157,27 @@ extension on String {
     return output.toString();
   }
 }
+
+abstract class NoteManager {
+  void write(int noteId, Content content);
+  void read(int noteId);
+  void update(int noteId, Content content);
+  void delete(int noteId);
+  Note search(int noteId) {
+    return Note();
+  }
+}
+
+class Content {
+  final String? _title;
+  final String? _details;
+  Content({String? title, String? details})
+      : _title = title,
+        _details = details;
+
+  String? get title => _title;
+  String? get details => _details;
+}
+
+class Note {}
+
