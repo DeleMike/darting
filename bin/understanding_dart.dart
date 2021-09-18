@@ -15,8 +15,16 @@ void main(List<String> arguments) {
   // final server = FakeWebServer();
   // server.fetchTemperature('');
 
-  final soda = Bottle();
-  soda.open();
+  // final soda = Bottle();
+  // soda.open();
+
+  // final calc = Calculator();
+  // calc.sum(10, 5);
+
+  final secret = 'abc'.encoded;
+  print(secret);
+  final msg = secret.decoded;
+  print(msg);
 }
 
 enum Grade { A, B, C, D, E, F }
@@ -104,3 +112,25 @@ class SodaBottle implements Bottle {
     print('Fizz Fizz');
   }
 }
+
+class Calculator with Adder {}
+
+mixin Adder {
+  void sum(int a, int b) => print(a + b);
+}
+
+extension on String {
+  String get encoded => _convert(1);
+
+  String get decoded => _convert(-1);
+
+  String _convert(int pos) {
+    final output = StringBuffer();
+    for (final codePoint in runes) {
+      output.writeCharCode(codePoint - pos);
+    }
+    return output.toString();
+  }
+}
+
+
