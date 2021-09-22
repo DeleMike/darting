@@ -1,5 +1,6 @@
 import 'dart:io';
-void main(List<String> arguments) {
+
+void main(List<String> arguments) async {
   //ListOperations.play();
   //ListOperations.add([1, 2, 3, 4]);
   //ListOperations.firstChallenge('I code quite frequently');
@@ -12,6 +13,10 @@ void main(List<String> arguments) {
   // print(ListOperations.secondChallenge(bigText));
 
   // ListOperations.challengeThree();
+
+  // final reader = Reader();
+  // final paragraph = await reader.doReadAndWriteTask();
+  print(ListOperations.secondChallenge('Olayemi'));
 }
 
 class ListOperations {
@@ -123,9 +128,27 @@ class User {
 class Reader {
   static const filePath = 'assets/text.txt';
 
+  /// contains large text
+  static const bigFilePath = 'assets/text_large.txt';
+
   //read file and write a very long text to another file
   //do a word count on the contents from the file
 
-  
+  Future<String> doReadAndWriteTask() async {
+    final file = File(filePath);
+    final contents = await file.readAsString();
 
+    //create a new file
+    final newFile = File(bigFilePath);
+
+    //write to new file
+    for (var i = 0; i < 1000; i++) {
+      await newFile.writeAsString(contents, mode: FileMode.append);
+    }
+
+    final bigFileContents = await newFile.readAsString();
+    print('done');
+
+    return bigFileContents;
+  }
 }
