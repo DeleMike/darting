@@ -1,3 +1,4 @@
+import 'dart:io';
 void main(List<String> arguments) {
   //ListOperations.play();
   //ListOperations.add([1, 2, 3, 4]);
@@ -10,7 +11,7 @@ void main(List<String> arguments) {
   // ''';
   // print(ListOperations.secondChallenge(bigText));
 
-  ListOperations.challengeThree();
+  // ListOperations.challengeThree();
 }
 
 class ListOperations {
@@ -117,4 +118,14 @@ class User {
     mId = id;
     mName = name;
   }
+}
+
+class Reader {
+  static const filePath = 'assets/text.txt';
+
+  //read file and write a very long text to another file
+  //do a word count on the contents from the file
+
+  
+
 }
