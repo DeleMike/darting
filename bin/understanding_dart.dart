@@ -16,7 +16,7 @@ void main(List<String> arguments) async {
 
   // final reader = Reader();
   // final paragraph = await reader.doReadAndWriteTask();
-  print(ListOperations.secondChallenge('Olayemi'));
+  print(ListOperations.secondChallenge('Akindele Michael Olawole'));
 }
 
 class ListOperations {
